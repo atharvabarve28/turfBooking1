@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PD's Turf</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
+
+    <!-- Bootstrap css links -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Custom css link -->
+    <link rel="stylesheet" href="../assets/css/contactus.css">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css");
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-size: cover;
+            background-repeat: no-repeat;
+
+        }
+
+        /* Section1 */
+        .container-fluid .nav-item {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .container-fluid .nav-item1 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .container-fluid .nav-link {
+            color: rgb(255, 255, 255);
+        }
+
+        .container-fluid {
+            z-index: 2;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .heroImg {
+            z-index: 1;
+            height: auto;
+            width: 100%;
+        }
+
+        .heroText {
+            position: absolute;
+            top: 25%;
+            left: 25%;
+            transform: translate(-50% -50%);
+            color: rgb(255, 255, 255);
+            text-align: center;
+        }
+
+        .heroHeading {
+            font-weight: 800;
+            font-size: 100px;
+        }
+
+        .heroSubHeading {
+            font-size: 30px;
+            font-weight: 500;
+        }
+
+        .card {
+            margin: 0 auto;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        .container1 {
+            width: 60%;
+            padding: 45px;
+            border-radius: 0;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .row {
+            box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+
+        }
+
+        .col-md-7 {
+            padding: 20px;
+        }
+
+        .col-md-5 {
+            background: #1089ff;
+            padding: 20px;
+            color: white;
+
+        }
+
+        .form-control {
+            height: 52px;
+            background: #fff;
+            color: #000;
+            font-size: 14px;
+            border-radius: 2px;
+            -webkit-box-shadow: none !important;
+            box-shadow: none !important;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .bi {
+            font-size: 20px;
+        }
+
+        .d-flex p {
+            font-size: 18px;
+            padding-left: 10px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <section id="navbar">
+        <div class="container-fluid">
+            <header class="d-flex justify-content-end py-3 px-5 w-100">
+                <ul class="nav nav-pills">
+                    <li class="nav-item"><a href="/homePageReload" class="nav-link">Home</a></li>
+                    &nbsp;
+                    &nbsp;
+                    <li class="nav-item"><a href="/bookPageReload" class="nav-link">Book</a></li>
+                    &nbsp;
+                    &nbsp;
+                    <li class="nav-item"><a href="" class="nav-link">Contact us</a></li>
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    <li class="nav-item1"><a href="/loginPageReload" class="nav-link bg-success active">Login</a>
+                    </li>
+                </ul>
+            </header>
+        </div>
+    </section>
+
+    <section>
+        <div class="container1">
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-7">
+                    <h4><b>Get in touch</b></h4>
+                    <br>
+                    <div class="mb-3">
+                        <label for="formGroupExampleInput" class="form-label fw-bold">Name</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput"
+                            placeholder="Enter your name">
+                    </div>
+                    <div class="mb-3">
+                        <label for="formGroupExampleInput2" class="form-label fw-bold">Email</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput2"
+                            placeholder="Enter your email">
+                    </div>
+                    <div class="mb-3">
+                        <label for="formGroupExampleInput2" class="form-label fw-bold">Contact Number</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput2"
+                            placeholder="Enter your number">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label fw-bold">Message</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                            placeholder="Enter Message"></textarea>
+                    </div>
+                    <br>
+                    <button class="btn btn-success fw-bold">Submit</button>
+                </div>
+
+                <div class="col-md-5 bg-success">
+                    <h4>Contact us</h4>
+                    <hr>
+                    <div class="mt-4">
+                        <div class="d-flex">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <p><b>Address:</b> Sinhgad Institute of Management, Pune</p>
+                        </div>
+                        <hr>
+                        <div class="d-flex">
+                            <i class="bi bi-telephone-fill"></i>
+                            <p><b>Contact :</b> 8888888888</p>
+                        </div>
+                        <hr>
+                        <div class="d-flex">
+                            <i class="bi bi-envelope-fill"></i>
+                            <p><b>Email:</b> Contact@gmail.com</p>
+                        </div>
+                        <hr>
+                        <div class="d-flex">
+                            <i class="bi bi-globe"></i>
+                            <p><b>Website:</b> www.siom.com</p>
+                        </div>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

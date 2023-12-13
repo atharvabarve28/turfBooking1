@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PD's Turf | GroundZero</title>
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="/public/img/favicon.ico" type="image/x-icon">
+
+    <!-- Bootstrap css links -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+    <!-- Custom css link -->
+    <link rel="stylesheet" href="./turf.css">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-size: cover;
+            background-repeat: no-repeat;
+
+        }
+
+        /* Section1 */
+        .container-fluid .nav-item {
+            font-size: 18px;
+            font-weight: 500;
+        }
+
+        .container-fluid .nav-item1 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .container-fluid .nav-link {
+            color: rgb(238, 238, 238);
+        }
+
+        .container-fluid {
+            background-color: rgba(0, 122, 16, 0.671);
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        .cards {
+            position: relative;
+            align-items: center;
+            display: flex;
+        }
+
+        .card-img-top {
+            width: 100%;
+            height: 12rem;
+        }
+
+        #card1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+        }
+
+        .confirmBooking {
+            column-gap: 40px;
+            justify-content: center;
+            display: flex;
+            margin: auto;
+            align-items: center;
+        }
+
+        #upiId {
+            cursor: pointer;
+        }
+
+        #upiIdContainer:hover {
+            font-weight: 800;
+            color: blue;
+            cursor: pointer;
+        }
+
+        .paymentWindow {
+            /* display: none; */
+
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        /* .paymentWindow.show {
+    opacity: 1;
+    pointer-events: auto;
+    display: block;
+}*/
+
+        .slotWindow.show {
+            opacity: 1;
+            pointer-events: auto;
+            display: block;
+        }
+
+        .slotWindow {
+            display: none;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .paymentWindow {
+            position: relative;
+        }
+
+        .fa-circle-xmark {
+            cursor: pointer;
+            position: absolute;
+            top: 2px;
+            right: -13px;
+        }
+
+        input[type="radio"] {
+            transform: scale(1.5);
+        }
+
+        input[type="checkbox"] {
+            transform: scale(1.5);
+        }
+
+        table {
+            justify-content: center;
+            align-items: center;
+            border-collapse: collapse;
+            width: 20rem;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+        .maintenance {
+            background-color: rgb(179, 179, 179);
+        }
+
+        #Details {
+            display: flex;
+        }
+
+        .timeTable {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: 20px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <section id="navbar">
+        <div class="container-fluid">
+            <header class="d-flex justify-content-end py-3 px-5 w-100">
+                <ul class="nav nav-pills">
+                    <li class="nav-item"><a href="/homePageReload" class="nav-link">Home</a></li>
+                    &nbsp;
+                    &nbsp;
+                    <li class="nav-item"><a href="/bookPageReload" class="nav-link">Book</a></li>
+                    &nbsp;
+                    &nbsp;
+                    <li class="nav-item"><a href="/contactUsPageReload" class="nav-link">Contact us</a></li>
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    &nbsp;
+                    <li class="nav-item1"><a href="/loginPageReload" class="nav-link bg-success active">Login</a>
+                    </li>
+                </ul>
+            </header>
+        </div>
+    </section>
+
+    <br>
+    <br>
+
+    <section class="confirmBooking">
+        <div class="cards" id="card1">
+
+            <!-- Turf 1 -->
+            <div class="card mx-5" style="width: 25rem; height: 32rem;">
+                <img src="/public/img/turf1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h4 class="card-title my-4 fa-2xl text-center">GroundZero</h4>
+                    <br>
+                    <p><i class="fa-sharp fa-solid fa-location-dot fa-xl" style="color: #000000;"></i>&nbsp;&nbsp;Wakad,
+                        Pune </p>
+                    <p class="card-text"><i class="fa-solid fa-tags" style="color: #000000;"></i>&nbsp;&nbsp;₹599</p>
+                    <p><i class="fa-solid fa-clock" style="color: #000000;"></i>&nbsp;&nbsp;6:00 am - 7:00 pm</p>
+                    <p><i class="fa-solid fa-star fa-sm" style="color: #ffd43b;"></i>&nbsp;&nbsp;4.5 </p>
+                    <button type="button" class="btn btn-success" onclick="showSlotWindow()">Check
+                        Availability</button>
+
+                    <!-- hidePaymentWindow() -->
+                </div>
+            </div>
+
+        </div>
+
+        <div class="slotWindow">
+
+            <div class="card card-body">
+                <h4 class="text-center py-1" style="font-weight: 700;">Confirm Your Details</h4>
+
+                <form action="/slotBookingForm" method="post" onsubmit="return validateForm()">
+                    <div class="form-floating my-1">
+                        <input type="text" class="form-control border-3" id="alphabeticInput" placeholder="JohnDoe"
+                            name="EnterName">
+                        <label for="floatingInput">Enter name</label>
+                    </div>
+                    <div class="form-floating my-1">
+                        <input type="text" class="form-control border-3" id="floatingInput"
+                            oninput="this.value = this.value.replace(/[^0-9]/g, '');" placeholder="1234567890"
+                            maxlength="10" name="ConNum">
+                        <label for="floatingInput">Contact number</label>
+                    </div>
+                    <p></p><i class="fa-regular fa-circle-xmark fa-2xl text-end" onclick="hideSlotWindow()"
+                        style="color: #838383;"></i></p>
+                    <div class="timeTable">
+                        <table>
+                            <tr>
+                                <td>
+                                    <label class="py-2 px-3">
+                                        &nbsp; <input type="radio" name="groundZero" value="groundZero_6-8am"> &nbsp;
+                                        6.00 AM - 8.00
+                                        AM
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="py-2 px-3">
+                                        &nbsp; <input type="radio" name="groundZero" value="groundZero_8-10am"> &nbsp;
+                                        8.00 AM - 10.00
+                                        AM
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr class="maintenance">
+                                <td class="text-center py-1 px-3">
+                                    -- <i class="fa-solid fa-screwdriver-wrench fa-sm" style="color: #000000;"></i>
+                                    &nbsp;
+                                    Maintenance break &nbsp; <i class="fa-solid fa-screwdriver-wrench fa-sm"
+                                        style="color: #000000;"></i> --
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="py-2 px-3">
+                                        &nbsp; <input type="radio" name="groundZero" value="groundZero_10.30-12.30">
+                                        &nbsp; 10.30 AM - 12.30
+                                        PM
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="py-2 px-3">
+                                        &nbsp; <input type="radio" name="groundZero" value="groundZero_12.30-2.30">
+                                        &nbsp; 12.30 PM - 2.30
+                                        PM
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr class="maintenance">
+                                <td class="text-center py-1 px-3">
+                                    -- <i class="fa-solid fa-screwdriver-wrench fa-sm" style="color: #000000;"></i>
+                                    &nbsp;
+                                    Maintenance break &nbsp; <i class="fa-solid fa-screwdriver-wrench fa-sm"
+                                        style="color: #000000;"></i> --
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="py-2 px-3">
+                                        &nbsp; <input type="radio" name="groundZero" value="groundZero_3-5"> &nbsp; 3.00
+                                        PM - 5.00
+                                        PM
+                                    </label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <label class="py-2 px-3">
+                                        &nbsp; <input type="radio" name="groundZero" value="groundZero_5-7"> &nbsp; 5.00
+                                        PM - 7.00
+                                        PM
+                                    </label>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <br>
+                    <div class="paymentWindow">
+                        <div class="card card-body" style="max-width: 27rem;">
+                            <!-- <p></p><i class="fa-regular fa-circle-xmark fa-2xl text-end" onclick="hidePaymentWindow()"
+                                style="color: #838383;"></i></p> -->
+                            <p class="text-center" style="font-weight: 550;">Make a payment of <b>₹599</b> on this QR
+                            </p>
+                            <img style="align-self: center; width: 300px; height: 300px;" src="/public/img/paymentQR.jpg" alt="deshmukh2066-2@okaxis">
+                            <br>
+                            <p class="px-5"><b>NAME:</b> Parth Deshmukh</p>
+                            <div id="upiIdContainer">
+                                <p class="px-5" onclick="copyUPI()"><b>UPI ID:</b> <span
+                                        id="upiId">deshmukh2066-2@okaxis &nbsp;<i class="fa-solid fa-clipboard fa-l"
+                                            style="color: #727272;"></span></i></p>
+                            </div>
+                            <div class="form-floating my-1">
+                                <input type="text" class="form-control border-3" id="floatingInput"
+                                    oninput="this.value = this.value.replace(/[^0-9]/g, '');" placeholder="1234567890"
+                                    maxlength="12" name="upi_t_id">
+                                <label for="floatingInput">UPI transaction ID</label>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-success text-center mt-auto">Confirm Slot</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <br>
+
+
+    </section>
+    <br>
+    <br>
+
+    <!-- Script -->
+    <script>
+
+        function validateAlphabeticInput(input) {
+            input.value = input.value.replace(/[A-Za-z]/g, '');
+        }
+
+        function validateForm() {
+            var radioButtons = document.getElementsByName('groundZero');
+            var isChecked = false;
+            for (var i = 0; i < radioButtons.length; i++) {
+                if (radioButtons[i].checked) {
+                    isChecked = true;
+                    break;
+                }
+            }
+            if (!isChecked) {
+                alert('Please select a time slot.');
+                return false;
+            }
+            return true;
+        }
+
+
+        function copyUPI() {
+            var upiIdText = document.getElementById("upiId").innerText;
+
+            var tempInput = document.createElement("textarea");
+            var copyIcon = document.querySelector(".copy-btn");
+
+            tempInput.value = upiIdText;
+            document.body.appendChild(tempInput);
+
+            tempInput.select();
+            tempInput.setSelectionRange(0, 99999);
+
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            alert("Copied to clipboard");
+        }
+
+        // function showPaymentWindow() {
+        //     if (validateForm()) {
+        //         document.querySelector('.btn-success').addEventListener('click', showPaymentWindow);
+        //         var paymentWindow = document.querySelector('.paymentWindow');
+        //         paymentWindow.classList.add('show');
+        //     }
+        // }
+
+        function showSlotWindow() {
+            document.querySelector('.btn-success').addEventListener('click', showSlotWindow);
+            var slotWindow = document.querySelector('.slotWindow');
+            slotWindow.classList.add('show');
+        }
+
+        function hideSlotWindow() {
+            var userConfirmed = confirm("Cancel the booking?");
+
+            if (userConfirmed) {
+                var slotWindow = document.querySelector('.slotWindow');
+                slotWindow.classList.remove('show');
+            }
+        }
+
+        // function hidePaymentWindow() {
+        //     var userConfirmed = confirm("Cancel the payment?");
+
+        //     if (userConfirmed) {
+        //         var paymentWindow = document.querySelector('.paymentWindow');
+        //         paymentWindow.classList.remove('show');
+        //     }
+        // }
+
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
+</body>
+
+</html>

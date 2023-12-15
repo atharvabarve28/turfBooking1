@@ -4,11 +4,11 @@ const mongoose = require('mongoose')
 mongoose.connect("mongodb://localhost:27017/AdminLogin")
 
     .then(() => {
-        console.log("connection successful");
+        console.log("MongoDB Connected Successfully");
     })
 
     .catch(() => {
-        console.log("connection failed");
+        console.log("MongoDB Connection Failed");
     })
 
 const AdminSchema = new mongoose.Schema({

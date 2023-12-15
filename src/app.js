@@ -21,6 +21,33 @@ app.get("/finalBooking", (req, res) => {
     res.render("finalBooking");
 })
 
+app.get("/loginPageReload", (req, res) => {
+    res.render("login");
+});
+
+app.get("/homePageReload", (req, res) => {
+    res.render("index");
+});
+
+app.get("/bookPageReload", (req, res) => {
+    res.render("book");
+});
+
+app.get("/contactUsPageReload", (req, res) => {
+    res.render("contactus");
+});
+
+app.get("/logout", (req, res) => {
+    res.render("login");
+})
+
+
+
+
+
+
+
+
 // turf1
 app.get("/grdZero", (req, res) => {
     res.render("groundZero");
@@ -50,26 +77,6 @@ app.get("/turfup", (req, res) => {
 app.get("/WSpCl", (req, res) => {
     res.render("Wings_Sports_Club");
 });
-
-app.get("/loginPageReload", (req, res) => {
-    res.render("login");
-});
-
-app.get("/homePageReload", (req, res) => {
-    res.render("index");
-});
-
-app.get("/bookPageReload", (req, res) => {
-    res.render("book");
-});
-
-app.get("/contactUsPageReload", (req, res) => {
-    res.render("contactus");
-});
-
-app.get("/logout", (req, res) => {
-    res.render("login");
-})
 
 app.post("/slotBookingForm", async (req, res) => {
     try {
@@ -115,20 +122,50 @@ app.post("/login", async (req, res) => {
 
     // await login1.insertMany([data]);
 
-    try {
-        const check = await login1.findOne({ username: req.body.username })
-        if (check.password === req.body.password) {
-            res.render("adminHome")
-        } else {
-            res.send("incorrect password")
-        }
-    } catch {
-        res.send("incorrect username")
-    }
+    // try {
+    //     const check = await login1.findOne({ username: req.body.username })
+    //     if (check.password === req.body.password) {
+    //         res.render("adminHome")
+    //     } else {
+    //         res.send("incorrect password")
+    //     }
+    // } catch {
+    //     res.send("incorrect username")
+    // }
 
+    try {
+        const check = await login1.findOne({ username: req.body.username });
+        if (check) {
+            if (check.password === req.body.password) {
+                // Fetch bookings data and render adminHome if login is successful
+                const bookings = await slotbooking1.find();
+                res.render("adminHome", { bookings });
+            } else {
+                res.send("Incorrect password");
+            }
+        } else {
+            res.send("User not found");
+        }
+    } catch (error) {
+        console.error("Error during login:", error);
+        res.status(500).send("Internal Server Error");
+    }
 })
 
+app.get("/adminHome", async (req, res) => {
+    try {
+        const bookings = await slotbooking1.find();
+        console.log(bookings); // Add this line to log the fetched data
+        res.render("adminHome", { bookings });
+    } catch (error) {
+        console.error('Error fetching data from MongoDB', error);
+        res.status(500).send('Internal Server Error');
+    }
+});
+
+
+const port = 3000;
 
 app.listen(3000, () => {
-    console.log("port connected 3000");
+    console.log(`Server is running on http://localhost:${port}`);
 })

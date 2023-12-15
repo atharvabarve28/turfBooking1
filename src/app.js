@@ -21,8 +21,19 @@ app.get("/finalBooking", (req, res) => {
     res.render("finalBooking");
 })
 
+// turf1
 app.get("/grdZero", (req, res) => {
     res.render("groundZero");
+});
+
+//turf2
+app.get("/sahTurf", (req, res) => {
+    res.render("Sahyadri_Turf");
+});
+
+//turf3
+app.get("/tGoldenB", (req, res) => {
+    res.render("The_Golden_Boot");
 });
 
 app.get("/loginPageReload", (req, res) => {
@@ -55,7 +66,7 @@ app.post("/slotBookingForm", async (req, res) => {
             return res.send("Slot already booked. Please select another slot.");
         }
         if (checkTid) {
-            return res.send("Don't make payment twice.");
+            return res.send("Already Paid.");
         }
 
         // if (checkDate) {

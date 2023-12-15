@@ -34,7 +34,6 @@ const SlotBooking = new mongoose.Schema({
     selectedSlot: {
         type: String,
         required: true,
-        unique: true
     },
     upiTransactionId: {
         type: String,
@@ -51,7 +50,7 @@ const SlotBooking = new mongoose.Schema({
     }
 
 })
-
+SlotBooking.index({ selectedTurfGround: 1, selectedSlot: 1 }, { unique: true });
 const slotbooking1 = new mongoose.model("SlotBookings", SlotBooking);
 const login1 = new mongoose.model("AdminLogin1", AdminSchema);
 module.exports = {

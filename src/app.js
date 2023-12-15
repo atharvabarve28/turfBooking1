@@ -17,6 +17,10 @@ app.get("/", (req, res) => {
     res.render("index");
 })
 
+app.get("/finalBooking", (req, res) => {
+    res.render("finalBooking");
+})
+
 app.get("/grdZero", (req, res) => {
     res.render("groundZero");
 });
@@ -43,8 +47,9 @@ app.get("/logout", (req, res) => {
 
 app.post("/slotBookingForm", async (req, res) => {
     try {
-        const checkSlot = await slotbooking1.findOne({ selectedSlot: req.body.groundZero });
-        const checkTid = await slotbooking1.findOne({ upiTransactionId: req.body.groundZero });
+        const checkSlot = await slotbooking1.findOne({ selectedSlot: req.body.finalBooking });
+        const checkTid = await slotbooking1.findOne({ upiTransactionId: req.body.finalBooking });
+        const checkDate = await slotbooking1.findOne({ dateOfBooking: req.body.finalBooking });
 
         if (checkSlot) {
             return res.send("Slot already booked. Please select another slot.");
@@ -53,11 +58,17 @@ app.post("/slotBookingForm", async (req, res) => {
             return res.send("Don't make payment twice.");
         }
 
+        // if (checkDate) {
+        //     return res.send("Pick another date.");
+        // }
+
         const slotBooking = {
             name: req.body.EnterName,
             contactNumber: req.body.ConNum,
             selectedSlot: req.body.groundZero,
-            upiTransactionId: req.body.upi_t_id
+            upiTransactionId: req.body.upi_t_id,
+            dateOfBooking: req.body.selectedDate,
+            selectedTurfGround: req.body.selectedTurf
         };
 
         await slotbooking1.insertMany([slotBooking]);

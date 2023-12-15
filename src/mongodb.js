@@ -40,7 +40,16 @@ const SlotBooking = new mongoose.Schema({
         type: String,
         required: true,
         unique: true
+    },
+    dateOfBooking: {
+        type: String,
+        required: true
+    },
+    selectedTurfGround: {
+        type: String,
+        required: true
     }
+
 })
 
 const slotbooking1 = new mongoose.model("SlotBookings", SlotBooking);

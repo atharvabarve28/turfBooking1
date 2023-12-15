@@ -36,6 +36,21 @@ app.get("/tGoldenB", (req, res) => {
     res.render("The_Golden_Boot");
 });
 
+//turf4
+app.get("/patlClub", (req, res) => {
+    res.render("Patliputra_Sports_Club");
+});
+
+//turf5
+app.get("/turfup", (req, res) => {
+    res.render("Turf_Up");
+});
+
+//turf6
+app.get("/WSpCl", (req, res) => {
+    res.render("Wings_Sports_Club");
+});
+
 app.get("/loginPageReload", (req, res) => {
     res.render("login");
 });
@@ -74,12 +89,12 @@ app.post("/slotBookingForm", async (req, res) => {
         // }
 
         const slotBooking = {
+            selectedTurfGround: req.body.selectedTurf,
+            selectedSlot: req.body.groundZero,
             name: req.body.EnterName,
             contactNumber: req.body.ConNum,
-            selectedSlot: req.body.groundZero,
             upiTransactionId: req.body.upi_t_id,
-            dateOfBooking: req.body.selectedDate,
-            selectedTurfGround: req.body.selectedTurf
+            dateOfBooking: req.body.selectedDate
         };
 
         await slotbooking1.insertMany([slotBooking]);

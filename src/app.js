@@ -6,6 +6,7 @@ const templatePath = path.join(__dirname, "../templates");
 const { login1, slotbooking1 } = require("./mongodb");
 const e = require("express");
 const { error } = require("console");
+const BASE_URL = "http://localhost:3000";
 
 app.use(express.json())
 app.set("view engine", "hbs");
@@ -40,13 +41,6 @@ app.get("/contactUsPageReload", (req, res) => {
 app.get("/logout", (req, res) => {
     res.render("login");
 })
-
-
-
-
-
-
-
 
 // turf1
 app.get("/grdZero", (req, res) => {
@@ -163,9 +157,14 @@ app.get("/adminHome", async (req, res) => {
     }
 });
 
+app.get('/api/hello', (req, res) => {
+    res.json({ message: 'Hello from the serverless function!' });
+});
 
 const port = 3000;
 
 app.listen(3000, () => {
     console.log(`Server is running on http://localhost:${port}`);
 })
+
+module.exports = app;
